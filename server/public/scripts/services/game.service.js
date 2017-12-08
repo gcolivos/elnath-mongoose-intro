@@ -22,6 +22,7 @@ app.service('GameService', ['$http', function($http){
 
     self.addNewGame = function (newGame) {
         console.log(newGame);
+        self.newGame.votes = 0; //add votes = 0 as the default to a new game
         $http({
             method: 'POST',
             url: '/game',
