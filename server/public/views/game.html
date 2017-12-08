@@ -1,15 +1,35 @@
 <h1>Games Page</h1>
-<div>{{vm}}</div>
-    <ul>
-    <li ng-repeat="game in vm.games.list"> 
-        {{game.name}}, {{game.duration}}, {{game.numberOfPlayers}}, {{game.publishedDate}}, {{game.votes}}
-    </li>    
-    </ul>
-    <h2>Add Company?</h2>
-    <input type="text" ng-model="vm.newGame.name" placeholder="Name">
-    <input type="number" ng-model="vm.newGame.duration" placeholder="Duration">
-    <input type="number" ng-model="vm.newGame.numberOfPlayers" placeholder="# of players">
-    <input type="date" ng-model="vm.newGame.publishedDate" placeholder="Published Date">
-    <input type="number" ng-model="vm.newGame.votes" placeholder="Votes">
-    <button ng-click="vm.addNewGame(vm.newGame)">Add New Game</button>
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Duration</th>
+            <th>Number of Players</th>
+            <th>Date Published</th>
+            <th>Votes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="game in vm.games.list">
+            <td>{{game.name}}</td>
+            <td>{{game.duration}}</td>
+            <td>{{game.numberOfPlayers}}</td>
+            <td>{{game.publishedDate}}</td>
+            <td>{{game.votes}}</td>
+        </tr>
+    </tbody>
+</table>
+<h2>Add Game?</h2>
+<div class="form-group">
+    <label for="vm.newGame.name">Name?</label>
+    <input type="text" ng-model="vm.newGame.name" placeholder="Name" class="form-control">
+    <label for="vm.newGame.duration">Game Duration (in minutes)?</label>
+    <input type="number" ng-model="vm.newGame.duration" placeholder="Duration" class="form-control">
+    <label for="vm.newGame.numberOfPlayers">Number of Players?</label>
+    <input type="number" ng-model="vm.newGame.numberOfPlayers" placeholder="# of players" class="form-control">
+    <label for="vm.newGame.publishedDate">Date Published?</label>
+    <input type="date" ng-model="vm.newGame.publishedDate" placeholder="Published Date" class="form-control">
+    <!-- <input type="number" ng-model="vm.newGame.votes" placeholder="Votes"> -->
+</div>
+<button ng-click="vm.addNewGame(vm.newGame)">Add New Game</button>
 </div>

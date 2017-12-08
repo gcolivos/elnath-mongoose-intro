@@ -20,19 +20,24 @@ app.service('GameService', ['$http', function($http){
         });
     };
 
-    // self.addNewCompany = function (newCompany) {
-    //     console.log(newCompany);
-    //     $http({
-    //         method: 'POST',
-    //         url: '/companies',
-    //         data: newCompany
-    //     }).then(function (response) {
-    //         console.log('response', response);
-    //         self.getCompanies();
-    //         self.newCompany.name = '';
-    //         self.newCompany.country = '';
-    //     });
-    // }
+    self.addNewGame = function (newGame) {
+        console.log(newGame);
+        $http({
+            method: 'POST',
+            url: '/game',
+            data: newGame
+        }).then(function (response) {
+            console.log('response', response);
+            self.getGames();
+            self.newGame.name = '';
+            self.newGame.duration = '';
+            self.newGame.numberOfPlayers = '';
+            self.newGame.publishedDate = '';
+            self.newGame.votes = '';
+
+
+        });
+    }
     
     self.getGames();   //don't forget to call the function!
 }]);
